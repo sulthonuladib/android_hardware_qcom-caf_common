@@ -21,6 +21,10 @@ cc_library_headers {
 cc_library_headers {
     name: "qti_ipa_kernel_headers",
     defaults: ["generated_kernel_header_defaults"],
+    // miro/A17: the dataipa uapi headers (linux/msm_ipa.h et al) are not part
+    // of the prebuilt kernel headers; re-export them from the dataipa tree.
+    header_libs: ["qti_ipa_kernel_headers_local"],
+    export_header_lib_headers: ["qti_ipa_kernel_headers_local"],
 }
 
 cc_library_headers {
